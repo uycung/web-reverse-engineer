@@ -1,10 +1,13 @@
-# Web Reverse Engineering for Clean-Room Reimplementation
+# web-reverse-engineer
 
-> [**🔗 Live demo** ](https://web-reverse-engineer.netlify.app/)
+> A portable agent skill for studying public reference websites and rebuilding their mechanisms as original, clean-room implementations — plus a live demo app that shows the skill in action.
+>
+> [**🔗 Live demos**](https://web-reverse-engineer.netlify.app/)
 
-A public portfolio demonstration showcasing a clean-room workflow: inspecting a public reference website to understand its complex visual and technical mechanisms, extracting high-level animation/design principles, and building an original, brand-different implementation from scratch.
+This repository contains two things:
 
-This repository serves as a proof of concept showing how to study premium web designs ethically, without replicating proprietary source code or violating copyright and trademark boundaries.
+1. **The skill** — [`skills/web-reverse-engineer/`](skills/web-reverse-engineer/): a reusable, tool-agnostic workflow (SKILL.md + inspection scripts) you can install into any project. It teaches a coding agent how to inspect a running public website, extract high-level animation/design principles, and rebuild an original implementation from scratch.
+2. **The demo app** — a Next.js site with three reference-inspired demos, built entirely by following the skill. It doubles as the proof of concept and the portfolio.
 
 ---
 
@@ -12,16 +15,91 @@ This repository serves as a proof of concept showing how to study premium web de
 
 > **Inspect a public reference to understand technical and visual mechanisms, then build a distinct original page inspired by the discovered principles.**
 
-This project is **not** for copying websites or exact page expressions. Rather than producing exact reproductions, we translate raw visual deconstruction into reusable design principles, which are then applied through an explicit transfer contract covering colors, motion tuning, copywriting, assets, and layouts.
+This project is **not** for copying websites or exact page expressions. Raw visual deconstruction is translated into reusable design principles, which are then applied through an explicit transfer contract covering colors, motion tuning, copywriting, assets, and layouts.
 
-### Why Standard Design Export Tools Fall Short
-Traditional design extraction tools (such as CSS extractors or browser extensions) are excellent at pulling static tokens: font sizes, margin spacing, static hex colors, and basic images. However, they are completely blind to:
-1. **Procedural Animations:** E.g., custom HTML5 `<canvas>` rendering loops, math-driven curves, particle systems, and shader setups.
-2. **Scroll-Driven Motion:** Dynamic calculations linked to viewport offset, custom scroll friction systems (e.g., Locomotive Scroll, GSAP ScrollTrigger).
-3. **Complex State Interaction:** Advanced micro-interactions, blend modes (`mix-blend-mode`), and physics-based transitions.
-4. **Build-Time Bundling:** Obfuscated, chunked bundles containing dynamic runtime rendering parameters.
+### Why standard design export tools fall short
 
-This project demonstrates a deeper level of web deconstruction: auditing the running page, abstracting its mechanics into mathematical rules, and writing high-performance React/TypeScript code from scratch.
+Traditional design extraction tools (CSS extractors, browser extensions) are excellent at pulling static tokens: font sizes, margins, hex colors, basic images. However, they are completely blind to:
+
+1. **Procedural animations** — custom HTML5 `<canvas>` rendering loops, math-driven curves, particle systems, shader setups.
+2. **Scroll-driven motion** — dynamic calculations linked to viewport offset, custom scroll friction systems (e.g., Locomotive Scroll, GSAP ScrollTrigger).
+3. **Complex state interaction** — advanced micro-interactions, blend modes (`mix-blend-mode`), physics-based transitions.
+4. **Build-time bundling** — obfuscated, chunked bundles containing dynamic runtime rendering parameters.
+
+This skill operates at that deeper level: auditing the running page, abstracting its mechanics into mathematical rules, and writing high-performance React/TypeScript code from scratch.
+
+---
+
+## Install the skill
+
+The skill is a self-contained folder: [`skills/web-reverse-engineer/`](skills/web-reverse-engineer/) with a `SKILL.md` (the workflow definition) and `scripts/` (a Playwright-based inspection tool). It's built on the open `SKILL.md` standard (agentskills.io), so most agent tools discover it automatically — the agent reads the YAML frontmatter (`name` + `description`) at startup and loads the full skill body only when a task matches it. No registration step beyond putting the folder in the right place.
+
+### Get the skill folder
+
+**Via npm** (recommended — always up to date):
+
+```bash
+npm install web-reverse-engineer
+```
+
+The skill lives at `node_modules/web-reverse-engineer/` (`SKILL.md` + `scripts/`). Copy it into the skills directory for your tool, per the table below.
+
+**Or copy directly from this repo:**
+
+```bash
+cp -r skills/web-reverse-engineer /path/to/destination/
+```
+
+### Where each agent looks for it
+
+| Tool | Project-scoped (this repo/team only) | Personal (every project) |
+|---|---|---|
+| **Claude Code** | `.claude/skills/web-reverse-engineer/` | `~/.claude/skills/web-reverse-engineer/` |
+| **Codex CLI** | `.agents/skills/web-reverse-engineer/` (repo root) | `$HOME/.agents/skills/web-reverse-engineer/` |
+| **Other `SKILL.md`-compatible tools** (Cursor, OpenClaw, …) | check the tool's docs — most follow the same `.agents/skills/` or tool-specific convention | same |
+
+Example for Claude Code, global install:
+
+```bash
+cp -r node_modules/web-reverse-engineer ~/.claude/skills/web-reverse-engineer
+```
+
+Example for Codex CLI, personal install:
+
+```bash
+cp -r node_modules/web-reverse-engineer $HOME/.agents/skills/web-reverse-engineer
+```
+
+Once copied, asking the agent to "study this reference site and rebuild its hero animation" will trigger the skill automatically — no restart needed for Claude Code; Codex CLI picks up new skills automatically but a restart resolves it if one doesn't appear.
+
+### No skill system in your tool?
+
+Reference the file explicitly from its instructions file instead — e.g., add a line to your `AGENTS.md` / rules file:
+
+```
+For any reference-inspired rebuild task, first read and follow
+skills/web-reverse-engineer/SKILL.md.
+```
+
+### What the skill enforces
+
+Before any reference-inspired demo is proposed or implemented, the agent must state a **clarification contract**: the transfer mode (motion-only transfer, visual restyle, editorial redesign, or full concept demo), what is preserved vs. allowed to change (baseline, layout, copy, light/dark direction, assets), the motion intensity target, and where design documentation will live. The full contract and the 8-layer workflow are defined in [`SKILL.md`](skills/web-reverse-engineer/SKILL.md); repository-specific conventions for this repo live in [`AGENTS.md`](AGENTS.md).
+
+---
+
+## Live demos
+
+Each demo restyles the same immutable baseline page ("Field Supply") on its own route, so you can flip between a demo and the baseline to see exactly what the transfer changed — and what it deliberately left alone.
+
+| Demo | Live | Transfer | Reference |
+|---|---|---|---|
+| **Clyde-inspired background field** | [/demos/joinclyde-background-field](https://web-reverse-engineer.netlify.app/demos/joinclyde-background-field) | Dark-theme, whole-page style transfer — programmatic Canvas 2D ambient background of drifting gradient bands and translucent panels | joinclyde.com |
+| **Ochi interactions–inspired** | [/demos/field-supply-ochi-interactions-inspired](https://web-reverse-engineer.netlify.app/demos/field-supply-ochi-interactions-inspired) | Light-theme, motion-only micro-interactions — pointer-aware eyes driven by `atan2` vector math, masked row reveals, marquee bands, magnetic hover targets | ochi.design |
+| **Stripe Sessions–inspired** | [/demos/field-supply-stripe-sessions-inspired](https://web-reverse-engineer.netlify.app/demos/field-supply-stripe-sessions-inspired) | Light-theme hero animation — programmatic Canvas 2D sine-wave gradient plane | stripe.com/sessions/2026 |
+
+**Baseline for comparison:** [/sample](https://web-reverse-engineer.netlify.app/sample) — the untouched "before" page every demo starts from.
+
+Each demo documents its process in `docs/demos/<demo-slug>/` (`clean-room-notes.md` + `DESIGN.md`).
 
 ---
 
@@ -29,35 +107,81 @@ This project demonstrates a deeper level of web deconstruction: auditing the run
 
 To ensure absolute respect for intellectual property, this project adheres to strict clean-room engineering principles:
 
-* **No Code Copying:** Proprietary JavaScript packages, production bundles, stylesheets, or WebGL/shader files are never copied or reused.
-* **No Asset Copying:** We do not download or host copyrighted assets (trademarks, vector files, logos, custom fonts, images, or media) from the reference site.
-* **Brand Separation:** Demonstrations use neutral or fictional product contexts with original copy and completely distinct typography.
-* **Different Visual Palette:** We shift reference palettes into new product contexts and re-tune animation velocities/formulas.
-* **Design Terms:** We frame our work as *"inspired by"*, *"clean-room reconstruction"*, *"style transfer"*, and *"technical deconstruction"*. We avoid terms that imply exact copying.
+* **No code copying:** Proprietary JavaScript packages, production bundles, stylesheets, and WebGL/shader files are never copied or reused.
+* **No asset copying:** Copyrighted assets (trademarks, vector files, logos, custom fonts, images, media) from the reference site are never downloaded or hosted.
+* **Brand separation:** Demonstrations use neutral or fictional product contexts with original copy and completely distinct typography.
+* **Different visual palette:** Reference palettes are shifted into new product contexts, and animation velocities/formulas are re-tuned.
+* **Vocabulary:** The work is framed as *"inspired by"*, *"clean-room implementation"*, *"reimplementation"*, *"style transfer"*, and *"reference-inspired"*. Terms implying exact copying are avoided.
 
 For the full list of rules, see [`docs/legal-ethical-guardrails.md`](docs/legal-ethical-guardrails.md).
 
 ---
 
-## 🛠️ Project Structure
+## Run the demo app locally
+
+You only need this section if you want to run the demos yourself or build on the repo. To just use the skill, see [Install the skill](#install-the-skill) above.
+
+### Prerequisites
+
+* Node.js v18+
+* pnpm (preferred) or npm
+
+### Setup
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000):
+
+* Main homepage: `/`
+* Baseline sample page: `/sample`
+* Demo routes: `/demos/<demo-slug>`
+
+### Run the deconstruction script
+
+To audit a reference URL, trace its asset payload, and discover its canvas setup, first install the Playwright Chromium binary (one-time):
+
+```bash
+pnpm exec playwright install chromium
+```
+
+Then point the script at a reference URL:
+
+```bash
+node skills/web-reverse-engineer/scripts/scrape_site_assets.js https://www.joinclyde.com
+```
+
+This writes a JSON manifest (page viewport metadata, canvas sizes/contexts, stylesheet details) to `.tmp/reverse-engineer/www_joinclyde_com_manifest.json`.
+
+### Quality checks
+
+```bash
+pnpm run lint        # ESLint
+pnpm run typecheck   # TypeScript
+pnpm run build       # Production build
+```
+
+---
+
+## Repository structure
 
 ```txt
 web-reverse-engineer-demo/
-  app/                        # Next.js App Router Pages
-    layout.tsx                # Root Layout
+  app/                        # Next.js App Router pages
+    layout.tsx                # Root layout
     page.tsx                  # Homepage describing methodology
     sample/                   # Immutable "before" baseline (Field Supply)
     demos/                    # Isolated clean-room demo routes
   components/
-    site/                     # Shared Main Website Components
-      Header.tsx
-      Footer.tsx
+    site/                     # Shared site components (Header, Footer)
     sample/
       FieldSupplyPage.tsx     # Baseline page component (do not edit during experiments)
     demos/                    # Per-demo layout components
-    animation/                # Specialized Canvas/Trig animation components
-  docs/                       # Research Documentation
-    methodology.md            # Step-by-Step Technical Process
+    animation/                # Specialized Canvas/trig animation components
+  docs/
+    methodology.md            # Step-by-step technical process
     legal-ethical-guardrails.md
     demos/                    # Per-demo clean-room notes and DESIGN.md files
       <demo-slug>/
@@ -67,112 +191,17 @@ web-reverse-engineer-demo/
     web-reverse-engineer/
       SKILL.md                # Reusable, project-portable skill definition
       scripts/
-        scrape_site_assets.js # Playwright-based Inspection Tool
+        scrape_site_assets.js # Playwright-based inspection tool
   .tmp/
     reverse-engineer/         # Gitignored, per-demo temporary audit evidence
-  public/                     # Public Static Assets
+  public/                     # Public static assets
 ```
+
+Repository-specific agent conventions (baseline route, demo naming, docs paths) live in [`AGENTS.md`](AGENTS.md); the skill itself stays generic and portable.
 
 ---
-
-## Getting Started
-
-### Prerequisites
-* Node.js v18+
-* pnpm (preferred) or npm
-
-### Installation
-Clone the repository and install dependencies:
-```bash
-pnpm install
-```
-
-Install Playwright Chromium binaries (required for the deconstruction script):
-```bash
-pnpm exec playwright install chromium
-```
-
----
-
-## Project-local skill
-
-This repository includes a project-local copy of the `web-reverse-engineer` skill under `skills/web-reverse-engineer`.
-
-The skill documents the workflow used to inspect reference websites, extract high-level runtime animation/design principles, and rebuild distinct clean-room demos.
-
-Before any reference-inspired demo is proposed or implemented, the agent must state a clarification contract:
-
-* **Transfer mode:** `Motion-only transfer`, `Visual restyle`, `Editorial redesign`, or `Full concept demo`.
-* **Baseline preservation:** `/sample` is immutable by default, and experiments go under `/demos/...`.
-* **Light/dark direction:** ask or propose direction when either could work; never silently convert a light baseline into dark mode.
-* **Layout and copywriting permission:** state what is preserved, what may change if approved, and what will not change without approval.
-* **Asset generation permission:** default to no new image assets; ask before generating supporting assets.
-* **Motion intensity:** public demos default to `Showcase demo`, visible within 3 seconds without debug mode.
-* **Design documentation:** new demos create `docs/demos/<demo-slug>/DESIGN.md` and `docs/demos/<demo-slug>/clean-room-notes.md`. Real project applications create or update root-level `DESIGN.md`.
-
-This skill (`SKILL.md`) is written to be generic and portable — you can copy `skills/web-reverse-engineer/SKILL.md` into any other project. Repository-specific conventions (baseline route, demo naming, docs paths) live separately in [`AGENTS.md`](AGENTS.md).
-
----
-
-## 💻 Commands
-
-### 1. Run the Deconstruction Script
-To audit a reference URL, trace its asset payload, and discover its canvas setup:
-```bash
-node skills/web-reverse-engineer/scripts/scrape_site_assets.js https://www.joinclyde.com
-```
-This writes a JSON manifest report containing page viewport metadata, canvas sizes/contexts, and stylesheet details to:
-`.tmp/reverse-engineer/www_joinclyde_com_manifest.json`
-
-### 2. Run the Web Application
-Launch the local Next.js server to view the main site and available demos:
-```bash
-pnpm dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-* Main Home page: `http://localhost:3000/`
-* Baseline sample page: `http://localhost:3000/sample`
-* Demo routes: `http://localhost:3000/demos/<demo-slug>`
-
-### 3. Check Code Quality & Build
-```bash
-pnpm run lint        # Run ESLint
-pnpm run typecheck   # Check TypeScript types
-pnpm run build       # Build Next.js production build
-```
-
----
-
-## Included Demos
-
-* **Clyde-inspired background field** (`/demos/joinclyde-background-field`) — dark-theme, whole-page style transfer with a programmatic Canvas 2D ambient background of drifting gradient bands and translucent panels (reference: joinclyde.com).
-* **Ochi interactions–inspired** (`/demos/field-supply-ochi-interactions-inspired`) — light-theme, motion-only micro-interaction transfer: pointer-aware eyes driven by `atan2` vector math, masked row reveals, marquee text bands, and magnetic hover targets (reference: ochi.design).
-* **Stripe Sessions–inspired** (`/demos/field-supply-stripe-sessions-inspired`) — light-theme hero-section animation transfer with a programmatic Canvas 2D sine-wave gradient plane (reference: stripe.com/sessions/2026).
-
-Each demo has its own `clean-room-notes.md` and `DESIGN.md` under `docs/demos/<demo-slug>/`.
-
----
-
-## Install the skill
-
-The reusable skill lives in [`skills/web-reverse-engineer/`](skills/web-reverse-engineer/). Three ways to use it in your own projects:
-
-### Project-local copy
-Copy the skill folder into your project (adjust the destination to wherever your agent tool discovers skills, e.g. `.claude/skills/`):
-```bash
-cp -r skills/web-reverse-engineer /path/to/your-project/.claude/skills/web-reverse-engineer
-```
-
-### Global copy
-Copy the same folder into your agent tool's user-level skills directory so it is available in every project. The exact location varies by tool — for example `~/.claude/skills/` for Claude Code; check your tool's documentation for its skills path.
-
-### npm (once published)
-```bash
-npm install web-reverse-engineer
-```
-Then copy `node_modules/web-reverse-engineer/SKILL.md` (and `scripts/`) into your skills directory as above. _Not yet published — see roadmap._
 
 ## Roadmap
+
 * [ ] Additional reference-inspired demo (TBD)
 * [ ] Expand `docs/methodology.md` with a worked example walkthrough
