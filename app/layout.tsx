@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web Reverse Engineering Demos",
+  title: "CleanRoom Labs — Web Reverse Engineering Demos",
   description: "Clean-room technical deconstruction and style transfer implementations of premium web designs.",
 };
 

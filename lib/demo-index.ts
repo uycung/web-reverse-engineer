@@ -16,7 +16,16 @@ export type ImplementedDemo = {
 
 const DEMOS_DIR = path.join(process.cwd(), 'app', 'demos');
 const DEMO_DOCS_DIR = path.join(process.cwd(), 'docs', 'demos');
+const DEMO_SCREENSHOTS_DIR = path.join(process.cwd(), 'public', 'assets', 'demos');
 const FIELD_SUPPLY_IMAGE = '/assets/field-supply/hero-composition.svg';
+
+function getDemoImage(slug: string) {
+  if (existsSync(path.join(DEMO_SCREENSHOTS_DIR, `${slug}.jpg`))) {
+    return `/assets/demos/${slug}.jpg`;
+  }
+
+  return FIELD_SUPPLY_IMAGE;
+}
 
 function readIfExists(filePath: string) {
   if (!existsSync(filePath)) {
@@ -101,7 +110,7 @@ export function getImplementedDemos(): ImplementedDemo[] {
         title: readMetadataString(pageSource, 'title') ?? formatSlug(slug),
         href: `/demos/${slug}`,
         label: getDemoLabel(slug, pageSource, docsText),
-        image: FIELD_SUPPLY_IMAGE,
+        image: getDemoImage(slug),
         description:
           readMetadataString(pageSource, 'description') ??
           `Clean-room implementation documented under docs/demos/${slug}.`,

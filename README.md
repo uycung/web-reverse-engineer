@@ -1,6 +1,6 @@
 # Web Reverse Engineering for Clean-Room Reimplementation
 
-> **🔗 Live demo:** _coming soon_ <!-- TODO: fill in after human connects Netlify -->
+> [**🔗 Live demo** ](https://web-reverse-engineer.netlify.app/)
 
 A public portfolio demonstration showcasing a clean-room workflow: inspecting a public reference website to understand its complex visual and technical mechanisms, extracting high-level animation/design principles, and building an original, brand-different implementation from scratch.
 
