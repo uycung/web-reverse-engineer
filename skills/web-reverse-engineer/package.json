@@ -1,0 +1,26 @@
+{
+  "name": "web-reverse-engineer",
+  "version": "0.1.0",
+  "description": "Agent skill for clean-room web reverse engineering: inspect a public reference site, extract high-level animation/design principles, and rebuild an original, brand-distinct implementation.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TODO-github-username/web-reverse-engineer-demo.git",
+    "directory": "skills/web-reverse-engineer"
+  },
+  "keywords": [
+    "agent-skill",
+    "claude-code",
+    "skill",
+    "web-design",
+    "clean-room",
+    "reverse-engineering",
+    "animation",
+    "playwright",
+    "design-transfer"
+  ],
+  "files": [
+    "SKILL.md",
+    "scripts/"
+  ]
+}

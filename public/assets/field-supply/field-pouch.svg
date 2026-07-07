@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <!-- Definitions for shadows and patterns -->
+  <defs>
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1c1b1a" flood-opacity="0.05" />
+    </filter>
+    <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e4da" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#faf8f5" />
+  <rect width="100%" height="100%" fill="url(#grid-pattern)" opacity="0.5" />
+
+  <!-- Center Group -->
+  <g transform="translate(20, 20)">
+    <!-- Shadow Base -->
+    <rect x="60" y="60" width="240" height="140" rx="20" fill="#e8e4da" opacity="0.3" filter="url(#subtle-shadow)" />
+
+    <!-- Pouch Main Body -->
+    <rect x="60" y="60" width="240" height="140" rx="20" fill="#f0ede6" stroke="#d6d0c2" stroke-width="2" />
+    
+    <!-- Grab Loop (Left side) -->
+    <path d="M 60 100 C 45 100, 45 130, 60 130" fill="none" stroke="#596547" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Top Zipper Line (Horizontal) -->
+    <line x1="75" y1="95" x2="285" y2="95" stroke="#8e8a82" stroke-width="2" stroke-dasharray="3 2" />
+    <line x1="75" y1="95" x2="285" y2="95" stroke="#2d2c2a" stroke-width="1" opacity="0.5" />
+
+    <!-- Zipper Pull (Clay Accent) -->
+    <g transform="translate(100, 95) rotate(-90)">
+      <circle cx="0" cy="0" r="3.5" fill="#b85d3b" />
+      <rect x="-1.5" y="3" width="3" height="18" rx="1.5" fill="#b85d3b" />
+    </g>
+
+    <!-- Front Gear Loops / Elastic Webbing -->
+    <rect x="80" y="125" width="200" height="40" rx="6" fill="#e3ded5" stroke="#d6d0c2" stroke-width="1" />
+    <!-- Vertical Division Stitches -->
+    <line x1="130" y1="125" x2="130" y2="165" stroke="#8e8a82" stroke-width="1.5" stroke-dasharray="2 2" />
+    <line x1="180" y1="125" x2="180" y2="165" stroke="#8e8a82" stroke-width="1.5" stroke-dasharray="2 2" />
+    <line x1="230" y1="125" x2="230" y2="165" stroke="#8e8a82" stroke-width="1.5" stroke-dasharray="2 2" />
+
+    <!-- Webbing Loop Contrast -->
+    <rect x="85" y="132" width="35" height="26" rx="2" fill="#596547" fill-opacity="0.1" />
+    <rect x="135" y="132" width="35" height="26" rx="2" fill="#596547" fill-opacity="0.1" />
+    <rect x="185" y="132" width="35" height="26" rx="2" fill="#596547" fill-opacity="0.1" />
+    <rect x="235" y="132" width="35" height="26" rx="2" fill="#596547" fill-opacity="0.1" />
+
+    <!-- Brand / Technical Spec Label -->
+    <text x="80" y="82" font-family="monospace" font-size="7" fill="#8e8a82" letter-spacing="1">FIELD SUPPLY</text>
+    <text x="210" y="82" font-family="monospace" font-size="7" fill="#b85d3b" font-weight="bold">ORGANIZER // SPEC.02</text>
+    <text x="80" y="190" font-family="monospace" font-size="8" fill="#596547" opacity="0.7">SIZE: 2.2L • WAXED CANVAS</text>
+  </g>
+</svg>

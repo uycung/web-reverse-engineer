@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <!-- Definitions for gradients and shadows -->
+  <defs>
+    <filter id="pack-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="4" dy="12" stdDeviation="16" flood-color="#1c1b1a" flood-opacity="0.08" />
+    </filter>
+    <filter id="flat-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="6" stdDeviation="8" flood-color="#1c1b1a" flood-opacity="0.05" />
+    </filter>
+    <pattern id="grid-large" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e8e4da" stroke-width="1" opacity="0.7" />
+    </pattern>
+    <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#8e8a82" opacity="0.15" />
+    </pattern>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="#faf8f5" />
+  
+  <!-- Technical Grid overlay -->
+  <rect width="100%" height="100%" fill="url(#grid-large)" />
+  <rect width="100%" height="100%" fill="url(#dots)" />
+
+  <!-- Coordinates & Tech Labels in Background -->
+  <text x="40" y="50" font-family="monospace" font-size="9" fill="#8e8a82" letter-spacing="2">FIELD SUPPLY // STUDIO LAYOUT</text>
+  <text x="40" y="65" font-family="monospace" font-size="8" fill="#8e8a82" letter-spacing="1">COORD: 45.4215° N, 75.6972° W // REF. FS-GRID-01</text>
+  <text x="710" y="50" font-family="monospace" font-size="9" fill="#b85d3b" font-weight="bold" text-anchor="end" letter-spacing="1">SCALE 1:1.25</text>
+  <line x1="40" y1="80" x2="760" y2="80" stroke="#e8e4da" stroke-width="1.5" />
+
+  <!-- Content Group -->
+  <g transform="translate(10, 20)">
+    
+    <!-- BACKGROUND COMPONENT: Minimalist Camera Contour (Left Side) -->
+    <g transform="translate(120, 340) rotate(-15)" filter="url(#flat-shadow)">
+      <!-- Camera Body -->
+      <rect x="0" y="0" width="160" height="100" rx="10" fill="#e8e4da" stroke="#8e8a82" stroke-width="2" />
+      <rect x="0" y="0" width="160" height="30" fill="#8e8a82" rx="4" />
+      <!-- Dials -->
+      <rect x="20" y="-8" width="16" height="8" rx="2" fill="#596547" />
+      <rect x="110" y="-8" width="22" height="8" rx="2" fill="#596547" />
+      <circle cx="142" cy="-6" r="5" fill="#b85d3b" />
+      <!-- Lens -->
+      <circle cx="80" cy="55" r="32" fill="#f0ede6" stroke="#8e8a82" stroke-width="2" />
+      <circle cx="80" cy="55" r="24" fill="#faf8f5" stroke="#d6d0c2" stroke-width="1.5" />
+      <circle cx="80" cy="55" r="16" fill="#1c1b1a" opacity="0.05" />
+      <!-- Viewfinder -->
+      <rect x="80" y="8" width="12" height="8" rx="1" fill="#faf8f5" stroke="#8e8a82" stroke-width="1" />
+    </g>
+
+    <!-- BACKGROUND COMPONENT: Open / Half-finished Notebook (Right Side) -->
+    <g transform="translate(480, 140) rotate(10)" filter="url(#flat-shadow)">
+      <!-- Left Page -->
+      <path d="M 0 0 L 120 -10 L 120 170 L 0 180 Z" fill="#faf8f5" stroke="#d6d0c2" stroke-width="1.5" />
+      <!-- Right Page -->
+      <path d="M 120 -10 L 240 0 L 240 180 L 120 170 Z" fill="#faf8f5" stroke="#d6d0c2" stroke-width="1.5" />
+      <!-- Binder seam -->
+      <line x1="120" y1="-10" x2="120" y2="170" stroke="#8e8a82" stroke-width="1.5" stroke-dasharray="3 3" />
+      <!-- Ribbon bookmark -->
+      <path d="M 120 100 C 130 140, 110 180, 130 210" fill="none" stroke="#b85d3b" stroke-width="3" stroke-linecap="round" />
+      <!-- Grid pattern on notebook pages -->
+      <path d="M 10 15 L 110 7 M 10 35 L 110 27 M 10 55 L 110 47 M 10 75 L 110 67 M 10 95 L 110 87" fill="none" stroke="#e8e4da" stroke-width="0.8" />
+    </g>
+
+    <!-- MAIN COMPONENT: Transit Pack (Center-Left Focus) -->
+    <g transform="translate(240, 120) rotate(-5)" filter="url(#pack-shadow)">
+      <!-- Shadow Block -->
+      <rect x="0" y="0" width="220" height="340" rx="32" fill="#e8e4da" opacity="0.3" />
+      <!-- Pack Body -->
+      <rect x="0" y="0" width="220" height="340" rx="32" fill="#f0ede6" stroke="#d6d0c2" stroke-width="2.5" />
+      
+      <!-- Top Handle -->
+      <path d="M 70 0 C 70 -20, 150 -20, 150 0" fill="none" stroke="#596547" stroke-width="8" stroke-linecap="round" />
+      
+      <!-- Top Rain Flap -->
+      <path d="M 0 90 C 60 95, 160 95, 220 90 L 220 0 L 0 0 Z" fill="#e3ded5" stroke="#d6d0c2" stroke-width="1.5" />
+      
+      <!-- Central Strap & Buckle -->
+      <line x1="110" y1="0" x2="110" y2="340" stroke="#596547" stroke-width="1.5" opacity="0.3" />
+      
+      <!-- Front Zipper Track -->
+      <line x1="60" y1="80" x2="60" y2="300" stroke="#8e8a82" stroke-width="2.5" stroke-dasharray="4 2" />
+      <path d="M 60 80 L 60 300" fill="none" stroke="#2d2c2a" stroke-width="1" opacity="0.5" />
+      
+      <!-- Zipper Pull (Clay Accent) -->
+      <g transform="translate(60, 150)">
+        <circle cx="0" cy="0" r="4" fill="#b85d3b" />
+        <rect x="-2" y="4" width="4" height="20" rx="2" fill="#b85d3b" />
+      </g>
+      
+      <!-- Durable Base Overlay -->
+      <path d="M 2 280 C 50 295, 170 295, 218 280 L 218 296 C 218 310, 200 320, 180 320 L 40 320 C 20 320, 2 310, 2 296 Z" fill="#596547" fill-opacity="0.15" stroke="#596547" stroke-width="2" />
+      
+      <!-- Label -->
+      <rect x="25" y="32" width="170" height="34" rx="4" fill="#faf8f5" stroke="#d6d0c2" stroke-width="1" />
+      <text x="35" y="46" font-family="monospace" font-size="8" fill="#8e8a82">FIELD SUPPLY // TRANSIT-01</text>
+      <text x="35" y="58" font-family="monospace" font-size="8" font-weight="bold" fill="#1c1b1a">EVERYDAY COMPOSITION</text>
+    </g>
+
+    <!-- ACCENT COMPONENT: Field Pouch (Bottom Right) -->
+    <g transform="translate(490, 360) rotate(12)" filter="url(#flat-shadow)">
+      <rect x="0" y="0" width="180" height="110" rx="14" fill="#f0ede6" stroke="#d6d0c2" stroke-width="2" />
+      <line x1="12" y1="36" x2="168" y2="36" stroke="#8e8a82" stroke-width="1.5" stroke-dasharray="3 2" />
+      <!-- Elastic Loops -->
+      <rect x="20" y="55" width="140" height="30" rx="4" fill="#e3ded5" stroke="#d6d0c2" stroke-width="1" />
+      <!-- Stitch lines -->
+      <line x1="55" y1="55" x2="55" y2="85" stroke="#8e8a82" stroke-dasharray="2 2" />
+      <line x1="90" y1="55" x2="90" y2="85" stroke="#8e8a82" stroke-dasharray="2 2" />
+      <line x1="125" y1="55" x2="125" y2="85" stroke="#8e8a82" stroke-dasharray="2 2" />
+      
+      <!-- Red/Clay Accent Pull -->
+      <circle cx="25" cy="36" r="3" fill="#b85d3b" />
+      <path d="M 25 36 L 15 36" stroke="#b85d3b" stroke-width="2" />
+    </g>
+
+    <!-- Technical Dimension Lines & Pointer markers -->
+    <!-- Pointer to pack -->
+    <line x1="190" y1="180" x2="260" y2="200" stroke="#b85d3b" stroke-width="1" stroke-dasharray="3 3" />
+    <circle cx="190" cy="180" r="3" fill="#b85d3b" />
+    <text x="145" y="176" font-family="monospace" font-size="8" fill="#b85d3b">TRANSIT PACK (22L)</text>
+    
+    <!-- Pointer to notebook -->
+    <line x1="680" y1="120" x2="610" y2="150" stroke="#596547" stroke-width="1" stroke-dasharray="3 3" />
+    <circle cx="680" cy="120" r="3" fill="#596547" />
+    <text x="690" y="123" font-family="monospace" font-size="8" fill="#596547">MATERIAL LOG BOOK</text>
+    
+    <!-- Scale measure lines on bottom -->
+    <g transform="translate(100, 520)">
+      <line x1="0" y1="0" x2="580" y2="0" stroke="#8e8a82" stroke-width="1.5" />
+      <line x1="0" y1="-5" x2="0" y2="5" stroke="#8e8a82" stroke-width="1.5" />
+      <line x1="145" y1="-3" x2="145" y2="3" stroke="#8e8a82" stroke-width="1" />
+      <line x1="290" y1="-5" x2="290" y2="5" stroke="#8e8a82" stroke-width="1.5" />
+      <line x1="435" y1="-3" x2="435" y2="3" stroke="#8e8a82" stroke-width="1" />
+      <line x1="580" y1="-5" x2="580" y2="5" stroke="#8e8a82" stroke-width="1.5" />
+      <text x="0" y="18" font-family="monospace" font-size="8" fill="#8e8a82" text-anchor="middle">0mm</text>
+      <text x="290" y="18" font-family="monospace" font-size="8" fill="#8e8a82" text-anchor="middle">400mm</text>
+      <text x="580" y="18" font-family="monospace" font-size="8" fill="#8e8a82" text-anchor="middle">800mm</text>
+    </g>
+  </g>
+</svg>

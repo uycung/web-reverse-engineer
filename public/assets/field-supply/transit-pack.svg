@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <!-- Definitions for shadows and patterns -->
+  <defs>
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1c1b1a" flood-opacity="0.06" />
+    </filter>
+    <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e4da" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Canvas Background (matching the page style or neutral card) -->
+  <rect width="100%" height="100%" fill="#faf8f5" />
+  
+  <!-- Technical Grid Background -->
+  <rect width="100%" height="100%" fill="url(#grid-pattern)" opacity="0.5" />
+
+  <!-- Center Group -->
+  <g transform="translate(20, 20)">
+    <!-- Shadow Base -->
+    <rect x="70" y="80" width="220" height="340" rx="32" fill="#e8e4da" opacity="0.3" filter="url(#subtle-shadow)" />
+
+    <!-- Pack Main Body -->
+    <rect x="70" y="80" width="220" height="340" rx="32" fill="#f0ede6" stroke="#d6d0c2" stroke-width="2" />
+    
+    <!-- Top Grab Handle -->
+    <path d="M 140 80 C 140 60, 220 60, 220 80" fill="none" stroke="#596547" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Rain Flap Panel / Front Top Cover -->
+    <path d="M 70 170 C 130 175, 230 175, 290 170 L 290 80 C 290 80, 290 80, 290 80 L 70 80 Z" fill="#e3ded5" stroke="#d6d0c2" stroke-width="1.5" />
+    
+    <!-- Side Expansion Pleat (Left) -->
+    <path d="M 70 140 L 70 340" fill="none" stroke="#596547" stroke-width="3" opacity="0.4" />
+    
+    <!-- Side Expansion Pleat (Right) -->
+    <path d="M 290 140 L 290 340" fill="none" stroke="#596547" stroke-width="3" opacity="0.4" />
+
+    <!-- Front Zipper Track (Vertical/Asymmetric) -->
+    <line x1="125" y1="150" x2="125" y2="390" stroke="#8e8a82" stroke-width="2.5" stroke-dasharray="4 2" />
+    <path d="M 125 150 L 125 390" fill="none" stroke="#2d2c2a" stroke-width="1.2" opacity="0.6" />
+
+    <!-- Zipper Pull (Clay Accent) -->
+    <g transform="translate(125, 220)">
+      <circle cx="0" cy="0" r="4" fill="#b85d3b" />
+      <rect x="-2" y="4" width="4" height="24" rx="2" fill="#b85d3b" />
+    </g>
+
+    <!-- Bottom Protection Overlay (Durable Base) -->
+    <path d="M 72 380 C 120 395, 240 395, 288 380 L 288 396 C 288 410, 270 420, 250 420 L 110 420 C 90 420, 72 410, 72 396 Z" fill="#596547" fill-opacity="0.15" stroke="#596547" stroke-width="2" />
+    
+    <!-- Webbing Loop / Lash Point -->
+    <rect x="250" y="320" width="16" height="32" rx="4" fill="#faf8f5" stroke="#d6d0c2" stroke-width="1.5" />
+    <line x1="250" y1="336" x2="266" y2="336" stroke="#d6d0c2" stroke-width="1.5" />
+
+    <!-- Brand / Technical Spec Label -->
+    <text x="88" y="115" font-family="monospace" font-size="8" fill="#8e8a82" letter-spacing="1">FIELD SUPPLY // CO</text>
+    <text x="88" y="128" font-family="monospace" font-size="10" font-weight="bold" fill="#2d2c2a" letter-spacing="0.5">TRANSIT PACK 22L</text>
+    <text x="212" y="115" font-family="monospace" font-size="8" fill="#b85d3b" font-weight="bold">SPEC.01</text>
+    
+    <!-- Canvas Texture (Noise simulation lines) -->
+    <line x1="88" y1="280" x2="108" y2="280" stroke="#8e8a82" stroke-width="1" opacity="0.3" />
+    <line x1="88" y1="284" x2="100" y2="284" stroke="#8e8a82" stroke-width="1" opacity="0.3" />
+  </g>
+</svg>

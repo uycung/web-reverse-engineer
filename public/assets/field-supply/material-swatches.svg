@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <!-- Definitions for patterns -->
+  <defs>
+    <!-- Ripstop grid pattern -->
+    <pattern id="ripstop-grid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="none" />
+      <path d="M 8 0 L 0 0 0 8" fill="none" stroke="#faf8f5" stroke-width="0.8" opacity="0.3" />
+    </pattern>
+    <!-- Waxed canvas weave pattern -->
+    <pattern id="canvas-weave" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M 0 2 L 4 2 M 2 0 L 2 4" fill="none" stroke="#4a533c" stroke-width="0.5" opacity="0.4" />
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1c1b1a" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#faf8f5" />
+
+  <g transform="translate(10, 10)">
+    <!-- Swatch 1: Waxed Organic Canvas (Olive) -->
+    <g filter="url(#shadow)" transform="translate(40, 50)">
+      <rect x="0" y="0" width="120" height="160" rx="12" fill="#596547" stroke="#4a533c" stroke-width="1.5" />
+      <!-- Texture overlay -->
+      <rect x="0" y="0" width="120" height="160" rx="12" fill="url(#canvas-weave)" />
+      <!-- Swatch Label -->
+      <rect x="8" y="125" width="104" height="28" rx="6" fill="#faf8f5" fill-opacity="0.95" />
+      <text x="16" y="137" font-family="monospace" font-weight="bold" font-size="8" fill="#1c1b1a">01 / CANVAS</text>
+      <text x="16" y="147" font-family="monospace" font-size="7" fill="#596547">10oz Waxed</text>
+    </g>
+
+    <!-- Swatch 2: Recycled Ripstop Lining (Stone Gray) -->
+    <g filter="url(#shadow)" transform="translate(140, 70)">
+      <rect x="0" y="0" width="120" height="160" rx="12" fill="#8e8a82" stroke="#79756d" stroke-width="1.5" />
+      <!-- Texture overlay -->
+      <rect x="0" y="0" width="120" height="160" rx="12" fill="url(#ripstop-grid)" />
+      <!-- Stitching line detail -->
+      <path d="M 12 0 L 12 160" stroke="#faf8f5" stroke-dasharray="3 3" stroke-width="1" opacity="0.5" />
+      <!-- Swatch Label -->
+      <rect x="8" y="125" width="104" height="28" rx="6" fill="#faf8f5" fill-opacity="0.95" />
+      <text x="16" y="137" font-family="monospace" font-weight="bold" font-size="8" fill="#1c1b1a">02 / LINING</text>
+      <text x="16" y="147" font-family="monospace" font-size="7" fill="#8e8a82">210D Ripstop</text>
+    </g>
+
+    <!-- Swatch 3: Replaceable Hardware (Clay Accent Buckle) -->
+    <g filter="url(#shadow)" transform="translate(240, 40)">
+      <rect x="0" y="0" width="110" height="150" rx="12" fill="#e8e4da" stroke="#d6d0c2" stroke-width="1.5" />
+      
+      <!-- G-Hook Buckle Outline (Clay/Amber) -->
+      <g transform="translate(35, 30)">
+        <!-- Outer metal loop -->
+        <path d="M 5 0 C 2 0, 0 2, 0 5 L 0 55 C 0 58, 2 60, 5 60 L 35 60 C 38 60, 40 58, 40 55 L 40 40 L 32 40 L 32 50 C 32 51, 31 52, 30 52 L 10 52 C 9 52, 8 51, 8 50 L 8 10 C 8 9, 9 8, 10 8 L 30 8 C 31 8, 32 9, 32 10 L 32 20 L 40 20 L 40 5 C 40 2, 38 0, 35 0 Z" fill="#b85d3b" />
+        <!-- Gate opening for hook -->
+        <path d="M 40 28 L 24 28 C 22 28, 20 30, 20 32 L 20 38 C 20 40, 22 42, 24 42 L 40 42 Z" fill="#b85d3b" />
+      </g>
+      
+      <!-- Swatch Label -->
+      <rect x="8" y="115" width="94" height="28" rx="6" fill="#faf8f5" fill-opacity="0.95" />
+      <text x="14" y="127" font-family="monospace" font-weight="bold" font-size="8" fill="#1c1b1a">03 / ALUMINUM</text>
+      <text x="14" y="137" font-family="monospace" font-size="7" fill="#b85d3b">G-Hook 6061-T6</text>
+    </g>
+  </g>
+</svg>
