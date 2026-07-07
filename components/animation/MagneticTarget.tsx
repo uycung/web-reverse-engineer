@@ -60,7 +60,7 @@ export default function MagneticTarget({
       className={className}
       onPointerMove={handlePointerMove}
       onPointerLeave={reset}
-      style={shouldReduceMotion ? undefined : { x, y, rotateZ }}
+      style={{ x, y, rotateZ }}
     >
       {children}
     </motion.div>

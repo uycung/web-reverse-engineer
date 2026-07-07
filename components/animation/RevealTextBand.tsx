@@ -26,8 +26,8 @@ export function RevealLine({
   revealOnMount = false,
 }: RevealLineProps) {
   const shouldReduceMotion = useReducedMotion();
-  const initial = shouldReduceMotion ? false : { y: '112%', opacity: 0.4 };
-  const visible = shouldReduceMotion ? undefined : { y: '0%', opacity: 1 };
+  const initial = { y: '112%', opacity: 0.4 };
+  const visible = { y: '0%', opacity: 1 };
 
   return (
     <span className={`block overflow-hidden ${className}`}>
@@ -37,7 +37,11 @@ export function RevealLine({
         animate={revealOnMount ? visible : undefined}
         whileInView={revealOnMount ? undefined : visible}
         viewport={{ once: true, margin: '-10% 0px -10% 0px' }}
-        transition={{ duration: 0.72, delay, ease: [0.22, 1, 0.36, 1] }}
+        transition={{
+          duration: shouldReduceMotion ? 0 : 0.72,
+          delay: shouldReduceMotion ? 0 : delay,
+          ease: [0.22, 1, 0.36, 1],
+        }}
       >
         {children}
       </motion.span>

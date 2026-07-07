@@ -4,6 +4,10 @@
 >
 > [**🔗 Live demos**](https://web-reverse-engineer.netlify.app/)
 
+<p align="center">
+  <img src="./docs/assets/web-reverse-engineer-demo.gif" alt="web-reverse-engineer demo showing baseline and three clean-room reference-inspired animations" width="960">
+</p>
+
 This repository contains two things:
 
 1. **The skill** — [`skills/web-reverse-engineer/`](skills/web-reverse-engineer/): a reusable, tool-agnostic workflow (SKILL.md + inspection scripts) you can install into any project. It teaches a coding agent how to inspect a running public website, extract high-level animation/design principles, and rebuild an original implementation from scratch.
