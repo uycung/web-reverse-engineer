@@ -65,8 +65,8 @@ To keep comparisons clean and mathematically comparable (e.g., in clean-room dec
 * All DOM node section IDs (`sample-header` through `sample-cta`).
 * The relative visual positions and semantic elements of the content flow.
 * The local relative paths of vector graphics assets:
-  * [transit-pack.svg](file:///Users/uycung/Projects/web-reverse-engineer/public/assets/field-supply/transit-pack.svg)
-  * [field-pouch.svg](file:///Users/uycung/Projects/web-reverse-engineer/public/assets/field-supply/field-pouch.svg)
-  * [rolltop.svg](file:///Users/uycung/Projects/web-reverse-engineer/public/assets/field-supply/rolltop.svg)
-  * [material-swatches.svg](file:///Users/uycung/Projects/web-reverse-engineer/public/assets/field-supply/material-swatches.svg)
-  * [hero-composition.svg](file:///Users/uycung/Projects/web-reverse-engineer/public/assets/field-supply/hero-composition.svg)
+  * [transit-pack.svg](../public/assets/field-supply/transit-pack.svg)
+  * [field-pouch.svg](../public/assets/field-supply/field-pouch.svg)
+  * [rolltop.svg](../public/assets/field-supply/rolltop.svg)
+  * [material-swatches.svg](../public/assets/field-supply/material-swatches.svg)
+  * [hero-composition.svg](../public/assets/field-supply/hero-composition.svg)

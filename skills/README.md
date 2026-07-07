@@ -4,7 +4,7 @@ This directory contains project-local skills for the `web-reverse-engineer-demo`
 
 ## Overview
 
-Project-local skills are loaded and utilized specifically in the context of this repository. They are copied from or inspired by the global machine-level skills under `/Users/uycung/.agents/skills/`.
+Project-local skills are loaded and utilized specifically in the context of this repository. They are copied from or inspired by the global machine-level skills in your machine-level skills directory.
 
 ## Key Principles
 
