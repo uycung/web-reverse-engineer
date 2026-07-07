@@ -337,7 +337,7 @@ function baseCss() {
       top: 42px;
       z-index: 8;
       display: grid;
-      max-width: 980px;
+      max-width: calc(100vw - 192px);
       gap: 9px;
     }
     .caption__label {
@@ -357,13 +357,14 @@ function baseCss() {
       transform: translate3d(calc((1 - min(1, var(--progress) * 7)) * -22px), 0, 0);
     }
     .caption__title {
-      max-width: 860px;
+      max-width: calc(100vw - 192px);
       color: #fffdf4;
       font-family: Georgia, "Times New Roman", serif;
       font-size: 46px;
       font-weight: 900;
       line-height: 0.96;
       letter-spacing: 0;
+      white-space: nowrap;
       text-shadow: 0 2px 28px rgba(0, 0, 0, 0.36);
       opacity: min(1, var(--progress) * 5);
       transform: translate3d(calc((1 - min(1, var(--progress) * 5)) * 82px), 0, 0);
