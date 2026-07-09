@@ -1,12 +1,10 @@
+https://github.com/user-attachments/assets/6a8f0659-8304-4362-975d-e033021d4d18
+
 # web-reverse-engineer
 
 > A portable agent skill for studying public reference websites and rebuilding their mechanisms as original, clean-room implementations — plus a live demo app that shows the skill in action.
 
 [**🔗 Live demos**](https://web-reverse-engineer.netlify.app/)
-
-<p align="center">
-  <img src="./docs/assets/web-reverse-engineer-demo.gif" alt="web-reverse-engineer demo showing baseline and three clean-room reference-inspired animations" width="960">
-</p>
 
 This repository contains two things:
 
