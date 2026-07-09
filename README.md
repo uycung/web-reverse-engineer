@@ -1,8 +1,8 @@
 # web-reverse-engineer
 
 > A portable agent skill for studying public reference websites and rebuilding their mechanisms as original, clean-room implementations — plus a live demo app that shows the skill in action.
->
-> [**🔗 Live demos**](https://web-reverse-engineer.netlify.app/)
+
+[**🔗 Live demos**](https://web-reverse-engineer.netlify.app/)
 
 <p align="center">
   <img src="./docs/assets/web-reverse-engineer-demo.gif" alt="web-reverse-engineer demo showing baseline and three clean-room reference-inspired animations" width="960">
@@ -88,6 +88,24 @@ skills/web-reverse-engineer/SKILL.md.
 ### What the skill enforces
 
 Before any reference-inspired demo is proposed or implemented, the agent must state a **clarification contract**: the transfer mode (motion-only transfer, visual restyle, editorial redesign, or full concept demo), what is preserved vs. allowed to change (baseline, layout, copy, light/dark direction, assets), the motion intensity target, and where design documentation will live. The full contract and the 8-layer workflow are defined in [`SKILL.md`](skills/web-reverse-engineer/SKILL.md); repository-specific conventions for this repo live in [`AGENTS.md`](AGENTS.md).
+
+---
+
+## Example prompts
+
+The format used to build the demos in this repo:
+
+> Use skill `skills/web-reverse-engineer/SKILL.md`.
+> Inspect [reference URL], then propose how to apply [effect] to a separate demo based on `/sample`.
+> No code yet. Do not modify `/sample`.
+
+The same format, adapted for your own project:
+
+> Use skill `skills/web-reverse-engineer/SKILL.md`.
+> Inspect [reference URL], then propose how to apply [effect] to [target page/component].
+> No code yet.
+
+`[effect]` examples: background animation, scroll-triggered reveal, magnetic cursor hover, canvas particle motion, parallax, micro-interaction.
 
 ---
 
