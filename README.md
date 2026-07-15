@@ -4,12 +4,10 @@ https://github.com/user-attachments/assets/6a8f0659-8304-4362-975d-e033021d4d18
 
 > A portable agent skill for studying public reference websites and rebuilding their mechanisms as original, clean-room implementations — plus a live demo app that shows the skill in action.
 
-[**🔗 Live demos**](https://web-reverse-engineer.netlify.app/)
-
 This repository contains two things:
 
 1. **The skill** — [`skills/web-reverse-engineer/`](skills/web-reverse-engineer/): a reusable, tool-agnostic workflow (SKILL.md + inspection scripts) you can install into any project. It teaches a coding agent how to inspect a running public website, extract high-level animation/design principles, and rebuild an original implementation from scratch.
-2. **The demo app** — a Next.js site with three reference-inspired demos, built entirely by following the skill. It doubles as the proof of concept and the portfolio.
+2. **[The demo app](https://web-reverse-engineer.netlify.app/)** — a Next.js site with three reference-inspired demos, built entirely by following the skill. It doubles as the proof of concept and the portfolio.
 
 ---
 
@@ -99,7 +97,7 @@ The format used to build the demos in this repo:
 
 The same format, adapted for your own project:
 
-> Use skill `skills/web-reverse-engineer/SKILL.md`.
+> Use skill `web-reverse-engineer`.
 > Inspect [reference URL], then propose how to apply [effect] to [target page/component].
 > No code yet.
 
@@ -218,10 +216,3 @@ web-reverse-engineer-demo/
 ```
 
 Repository-specific agent conventions (baseline route, demo naming, docs paths) live in [`AGENTS.md`](AGENTS.md); the skill itself stays generic and portable.
-
----
-
-## Roadmap
-
-* [ ] Additional reference-inspired demo (TBD)
-* [ ] Expand `docs/methodology.md` with a worked example walkthrough
